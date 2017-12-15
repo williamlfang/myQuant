@@ -1,0 +1,931 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>股票数据下载的封装(日线/分钟线/实时价格/股票列/指数/etf/历史分笔/除权除息/复权) · pytdx</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="RainX">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-comment/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="hq_price.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/rainx/pytdx" target="_blank" class="custom-link">pytdx</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    接口API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="pytdx_hq.html">
+            
+                <a href="pytdx_hq.html">
+            
+                    
+                    标准行情 pytdx.hq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="pytdx_exhq.html">
+            
+                <a href="pytdx_exhq.html">
+            
+                    
+                    扩展行情 pytdx.exhq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="pytdx_reader.html">
+            
+                <a href="pytdx_reader.html">
+            
+                    
+                    数据文件读取 pytdx.reader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="pytdx_pool.html">
+            
+                <a href="pytdx_pool.html">
+            
+                    
+                    连接池 pytdx.pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="hqget.html">
+            
+                <a href="hqget.html">
+            
+                    
+                    hqget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="hqreader.html">
+            
+                <a href="hqreader.html">
+            
+                    
+                    hqreader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    常见问题和解决方案整理FAQ
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="fuquan_factor.html">
+            
+                <a href="fuquan_factor.html">
+            
+                    
+                    同花顺的一个爬虫 可以获取前后复权因子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="batch_download_data.html">
+            
+                <a href="batch_download_data.html">
+            
+                    
+                    数据的批量完整下载方式代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="hq_price.html">
+            
+                <a href="hq_price.html">
+            
+                    
+                    基金价格问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.4" data-path="api_wrapper.html">
+            
+                <a href="api_wrapper.html">
+            
+                    
+                    股票数据下载的封装(日线/分钟线/实时价格/股票列/指数/etf/历史分笔/除权除息/复权)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >股票数据下载的封装(日线/分钟线/实时价格/股票列/指数/etf/历史分笔/除权除息/复权)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x80A1;&#x7968;&#x6570;&#x636E;&#x4E0B;&#x8F7D;&#x7684;&#x5C01;&#x88C5;&#x5DF2;&#x5B8C;&#x6210;-&#x65E5;&#x7EBF;&#x5206;&#x949F;&#x7EBF;&#x5B9E;&#x65F6;&#x4EF7;&#x683C;&#x80A1;&#x7968;&#x5217;&#x6307;&#x6570;etf&#x5386;&#x53F2;&#x5206;&#x7B14;&#x9664;&#x6743;&#x9664;&#x606F;&#x590D;&#x6743;">&#x80A1;&#x7968;&#x6570;&#x636E;&#x4E0B;&#x8F7D;&#x7684;&#x5C01;&#x88C5;(&#x5DF2;&#x5B8C;&#x6210;) [&#x65E5;&#x7EBF;/&#x5206;&#x949F;&#x7EBF;/&#x5B9E;&#x65F6;&#x4EF7;&#x683C;/&#x80A1;&#x7968;&#x5217;/&#x6307;&#x6570;/etf/&#x5386;&#x53F2;&#x5206;&#x7B14;/&#x9664;&#x6743;&#x9664;&#x606F;/&#x590D;&#x6743;]</h1>
+<p><a href="https://github.com/rainx/pytdx/issues/78" target="_blank">https://github.com/rainx/pytdx/issues/78</a> by yutiansut</p>
+<pre><code class="lang-python"><span class="hljs-comment"># coding:utf-8</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># The MIT License (MIT)</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Copyright (c) 2016-2017 yutiansut/QUANTAXIS</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="hljs-comment"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="hljs-comment"># in the Software without restriction, including without limitation the rights</span>
+<span class="hljs-comment"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="hljs-comment"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="hljs-comment"># furnished to do so, subject to the following conditions:</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="hljs-comment"># copies or substantial portions of the Software.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="hljs-comment"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="hljs-comment"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="hljs-comment"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="hljs-comment"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="hljs-comment"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="hljs-comment"># SOFTWARE.</span>
+<span class="hljs-keyword">import</span> datetime
+
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">from</span> pytdx.hq <span class="hljs-keyword">import</span> TdxHq_API
+<span class="hljs-keyword">from</span> pytdx.exhq <span class="hljs-keyword">import</span> TdxExHq_API
+<span class="hljs-keyword">from</span> QUANTAXIS.QAUtil <span class="hljs-keyword">import</span> (QA_util_date_stamp, QA_util_date_str2int,
+                              QA_util_date_valid, QA_util_get_real_date,
+                              QA_util_get_real_datelist, QA_util_log_info,
+                              QA_util_time_stamp, QA_util_web_ping,
+                              trade_date_sse)
+<span class="hljs-comment">#from pypinyin import lazy_pinyin</span>
+<span class="hljs-keyword">import</span> tushare <span class="hljs-keyword">as</span> ts
+
+<span class="hljs-comment"># &#x57FA;&#x4E8E;Pytdx&#x7684;&#x6570;&#x636E;&#x63A5;&#x53E3;,&#x597D;&#x5904;&#x662F;&#x53EF;&#x4EE5;&#x5728;linux/mac&#x4E0A;&#x8054;&#x5165;&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;</span>
+<span class="hljs-comment"># &#x5177;&#x4F53;&#x53C2;&#x89C1;rainx&#x7684;pytdx(https://github.com/rainx/pytdx)</span>
+<span class="hljs-comment">#</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ping</span><span class="hljs-params">(ip)</span>:</span>
+    api = TdxHq_API()
+    __time1 = datetime.datetime.now()
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">with</span> api.connect(ip, <span class="hljs-number">7709</span>):
+            <span class="hljs-keyword">if</span> len(api.get_security_list(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)) &gt; <span class="hljs-number">800</span>:
+                <span class="hljs-keyword">return</span> datetime.datetime.now() - __time1
+    <span class="hljs-keyword">except</span>:
+        print(<span class="hljs-string">&apos;Bad REPSONSE %s&apos;</span> % ip)
+        <span class="hljs-keyword">return</span> datetime.timedelta(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>, <span class="hljs-number">0</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">select_best_ip</span><span class="hljs-params">()</span>:</span>
+    QA_util_log_info(<span class="hljs-string">&apos;Selecting the Best Server IP of TDX&apos;</span>)
+    listx = [<span class="hljs-string">&apos;218.75.126.9&apos;</span>, <span class="hljs-string">&apos;115.238.90.165&apos;</span>,
+             <span class="hljs-string">&apos;124.160.88.183&apos;</span>, <span class="hljs-string">&apos;60.12.136.250&apos;</span>, <span class="hljs-string">&apos;218.108.98.244&apos;</span>, <span class="hljs-string">&apos;218.108.47.69&apos;</span>,
+             <span class="hljs-string">&apos;14.17.75.71&apos;</span>, <span class="hljs-string">&apos;180.153.39.51&apos;</span>]
+    data = [ping(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> listx]
+    QA_util_log_info(<span class="hljs-string">&apos;===The BEST SERVER is :  %s ===&apos;</span> %
+                     (listx[data.index(min(data))]))
+    <span class="hljs-keyword">return</span> listx[data.index(min(data))]
+
+
+best_ip = select_best_ip()
+
+<span class="hljs-comment"># return 1 if sh, 0 if sz</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__select_market_code</span><span class="hljs-params">(code)</span>:</span>
+    code = str(code)
+    <span class="hljs-keyword">if</span> code[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;5&apos;</span>, <span class="hljs-string">&apos;6&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>] <span class="hljs-keyword">or</span> code[:<span class="hljs-number">3</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;009&quot;</span>, <span class="hljs-string">&quot;126&quot;</span>, <span class="hljs-string">&quot;110&quot;</span>, <span class="hljs-string">&quot;201&quot;</span>, <span class="hljs-string">&quot;202&quot;</span>, <span class="hljs-string">&quot;203&quot;</span>, <span class="hljs-string">&quot;204&quot;</span>]:
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_day</span><span class="hljs-params">(code, start_date, end_date, if_fq=<span class="hljs-string">&apos;00&apos;</span>, level=<span class="hljs-string">&apos;day&apos;</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    api = TdxHq_API()
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+
+        <span class="hljs-keyword">if</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;d&apos;</span>, <span class="hljs-string">&apos;D&apos;</span>, <span class="hljs-string">&apos;DAY&apos;</span>, <span class="hljs-string">&apos;Day&apos;</span>]:
+            level = <span class="hljs-number">9</span>
+        <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;w&apos;</span>, <span class="hljs-string">&apos;W&apos;</span>, <span class="hljs-string">&apos;Week&apos;</span>, <span class="hljs-string">&apos;week&apos;</span>]:
+            level = <span class="hljs-number">5</span>
+        <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, <span class="hljs-string">&apos;m&apos;</span>, <span class="hljs-string">&apos;Month&apos;</span>]:
+            level = <span class="hljs-number">6</span>
+        <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;Q&apos;</span>, <span class="hljs-string">&apos;Quarter&apos;</span>, <span class="hljs-string">&apos;q&apos;</span>]:
+            level = <span class="hljs-number">10</span>
+        <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-string">&apos;Y&apos;</span>, <span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;Year&apos;</span>]:
+            level = <span class="hljs-number">11</span>
+
+        data = pd.concat([api.to_df(api.get_security_bars(level, __select_market_code(
+            code), code, (<span class="hljs-number">9</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)], axis=<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">if</span> if_fq <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;00&apos;</span>, <span class="hljs-string">&apos;bfq&apos;</span>]:
+            data = data.assign(date=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))).assign(code=str(code))\
+                .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+                .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                       <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)[start_date:end_date]
+            <span class="hljs-keyword">return</span> data.assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))
+        <span class="hljs-keyword">elif</span> if_fq <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;01&apos;</span>, <span class="hljs-string">&apos;qfq&apos;</span>]:
+            xdxr_data = QA_fetch_get_stock_xdxr(code)
+
+            info = xdxr_data[xdxr_data[<span class="hljs-string">&apos;category&apos;</span>] == <span class="hljs-number">1</span>]
+
+            bfq_data = data\
+                .assign(date=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .assign(code=str(code))\
+                .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+                .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                       <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)
+
+            bfq_data[<span class="hljs-string">&apos;if_trade&apos;</span>] = <span class="hljs-keyword">True</span>
+            data = pd.concat([bfq_data, info[[<span class="hljs-string">&apos;category&apos;</span>]]
+                              [bfq_data.index[<span class="hljs-number">0</span>]:]], axis=<span class="hljs-number">1</span>)
+
+            data[<span class="hljs-string">&apos;date&apos;</span>] = data.index
+            data[<span class="hljs-string">&apos;if_trade&apos;</span>].fillna(value=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">True</span>)
+            data = data.fillna(method=<span class="hljs-string">&apos;ffill&apos;</span>)
+            data = pd.concat([data, info[[<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>,
+                                          <span class="hljs-string">&apos;songzhuangu&apos;</span>]][bfq_data.index[<span class="hljs-number">0</span>]:]], axis=<span class="hljs-number">1</span>)
+            data = data.fillna(<span class="hljs-number">0</span>)
+
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = (data[<span class="hljs-string">&apos;close&apos;</span>].shift(<span class="hljs-number">1</span>) * <span class="hljs-number">10</span> - data[<span class="hljs-string">&apos;fenhong&apos;</span>] + data[<span class="hljs-string">&apos;peigu&apos;</span>]
+                                * data[<span class="hljs-string">&apos;peigujia&apos;</span>]) / (<span class="hljs-number">10</span> + data[<span class="hljs-string">&apos;peigu&apos;</span>] + data[<span class="hljs-string">&apos;songzhuangu&apos;</span>])
+            data[<span class="hljs-string">&apos;adj&apos;</span>] = (data[<span class="hljs-string">&apos;preclose&apos;</span>].shift(<span class="hljs-number">-1</span>) /
+                           data[<span class="hljs-string">&apos;close&apos;</span>]).fillna(<span class="hljs-number">1</span>)[::<span class="hljs-number">-1</span>].cumprod()
+            data[<span class="hljs-string">&apos;open&apos;</span>] = data[<span class="hljs-string">&apos;open&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;high&apos;</span>] = data[<span class="hljs-string">&apos;high&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;low&apos;</span>] = data[<span class="hljs-string">&apos;low&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;close&apos;</span>] = data[<span class="hljs-string">&apos;close&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = data[<span class="hljs-string">&apos;preclose&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+
+            data = data[data[<span class="hljs-string">&apos;if_trade&apos;</span>]]
+            <span class="hljs-keyword">return</span> data.drop([<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>, <span class="hljs-string">&apos;songzhuangu&apos;</span>, <span class="hljs-string">&apos;if_trade&apos;</span>, <span class="hljs-string">&apos;category&apos;</span>], axis=<span class="hljs-number">1</span>)[data[<span class="hljs-string">&apos;open&apos;</span>] != <span class="hljs-number">0</span>].assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))[start_date:end_date]
+
+        <span class="hljs-keyword">elif</span> if_fq <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;03&apos;</span>, <span class="hljs-string">&apos;ddqfq&apos;</span>]:
+            xdxr_data = QA_fetch_get_stock_xdxr(code)
+
+            info = xdxr_data[xdxr_data[<span class="hljs-string">&apos;category&apos;</span>] == <span class="hljs-number">1</span>]
+
+            bfq_data = data\
+                .assign(date=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .assign(code=str(code))\
+                .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+                .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                       <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)
+
+            bfq_data[<span class="hljs-string">&apos;if_trade&apos;</span>] = <span class="hljs-keyword">True</span>
+            data = pd.concat([bfq_data, info[[<span class="hljs-string">&apos;category&apos;</span>]]
+                              [bfq_data.index[<span class="hljs-number">0</span>]:end_date]], axis=<span class="hljs-number">1</span>)
+
+            data[<span class="hljs-string">&apos;date&apos;</span>] = data.index
+            data[<span class="hljs-string">&apos;if_trade&apos;</span>].fillna(value=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">True</span>)
+            data = data.fillna(method=<span class="hljs-string">&apos;ffill&apos;</span>)
+            data = pd.concat([data, info[[<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>,
+                                          <span class="hljs-string">&apos;songzhuangu&apos;</span>]][bfq_data.index[<span class="hljs-number">0</span>]:end_date]], axis=<span class="hljs-number">1</span>)
+            data = data.fillna(<span class="hljs-number">0</span>)
+
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = (data[<span class="hljs-string">&apos;close&apos;</span>].shift(<span class="hljs-number">1</span>) * <span class="hljs-number">10</span> - data[<span class="hljs-string">&apos;fenhong&apos;</span>] + data[<span class="hljs-string">&apos;peigu&apos;</span>]
+                                * data[<span class="hljs-string">&apos;peigujia&apos;</span>]) / (<span class="hljs-number">10</span> + data[<span class="hljs-string">&apos;peigu&apos;</span>] + data[<span class="hljs-string">&apos;songzhuangu&apos;</span>])
+            data[<span class="hljs-string">&apos;adj&apos;</span>] = (data[<span class="hljs-string">&apos;preclose&apos;</span>].shift(<span class="hljs-number">-1</span>) /
+                           data[<span class="hljs-string">&apos;close&apos;</span>]).fillna(<span class="hljs-number">1</span>)[::<span class="hljs-number">-1</span>].cumprod()
+            data[<span class="hljs-string">&apos;open&apos;</span>] = data[<span class="hljs-string">&apos;open&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;high&apos;</span>] = data[<span class="hljs-string">&apos;high&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;low&apos;</span>] = data[<span class="hljs-string">&apos;low&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;close&apos;</span>] = data[<span class="hljs-string">&apos;close&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = data[<span class="hljs-string">&apos;preclose&apos;</span>] * data[<span class="hljs-string">&apos;adj&apos;</span>]
+
+            data = data[data[<span class="hljs-string">&apos;if_trade&apos;</span>]]
+            <span class="hljs-keyword">return</span> data.drop([<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>, <span class="hljs-string">&apos;songzhuangu&apos;</span>, <span class="hljs-string">&apos;if_trade&apos;</span>, <span class="hljs-string">&apos;category&apos;</span>], axis=<span class="hljs-number">1</span>)[data[<span class="hljs-string">&apos;open&apos;</span>] != <span class="hljs-number">0</span>].assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))[start_date:end_date]
+
+        <span class="hljs-keyword">elif</span> if_fq <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;02&apos;</span>, <span class="hljs-string">&apos;hfq&apos;</span>]:
+            xdxr_data = QA_fetch_get_stock_xdxr(code)
+
+            info = xdxr_data[xdxr_data[<span class="hljs-string">&apos;category&apos;</span>] == <span class="hljs-number">1</span>]
+
+            bfq_data = data\
+                .assign(date=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .assign(code=str(code))\
+                .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+                .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                       <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)
+
+            bfq_data[<span class="hljs-string">&apos;if_trade&apos;</span>] = <span class="hljs-keyword">True</span>
+            data = pd.concat([bfq_data, info[[<span class="hljs-string">&apos;category&apos;</span>]]
+                              [bfq_data.index[<span class="hljs-number">0</span>]:]], axis=<span class="hljs-number">1</span>)
+
+            data[<span class="hljs-string">&apos;date&apos;</span>] = data.index
+            data[<span class="hljs-string">&apos;if_trade&apos;</span>].fillna(value=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">True</span>)
+            data = data.fillna(method=<span class="hljs-string">&apos;ffill&apos;</span>)
+            data = pd.concat([data, info[[<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>,
+                                          <span class="hljs-string">&apos;songzhuangu&apos;</span>]][bfq_data.index[<span class="hljs-number">0</span>]:]], axis=<span class="hljs-number">1</span>)
+            data = data.fillna(<span class="hljs-number">0</span>)
+
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = (data[<span class="hljs-string">&apos;close&apos;</span>].shift(<span class="hljs-number">1</span>) * <span class="hljs-number">10</span> - data[<span class="hljs-string">&apos;fenhong&apos;</span>] + data[<span class="hljs-string">&apos;peigu&apos;</span>]
+                                * data[<span class="hljs-string">&apos;peigujia&apos;</span>]) / (<span class="hljs-number">10</span> + data[<span class="hljs-string">&apos;peigu&apos;</span>] + data[<span class="hljs-string">&apos;songzhuangu&apos;</span>])
+            data[<span class="hljs-string">&apos;adj&apos;</span>] = (data[<span class="hljs-string">&apos;preclose&apos;</span>].shift(<span class="hljs-number">-1</span>) /
+                           data[<span class="hljs-string">&apos;close&apos;</span>]).fillna(<span class="hljs-number">1</span>).cumprod()
+            data[<span class="hljs-string">&apos;open&apos;</span>] = data[<span class="hljs-string">&apos;open&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;high&apos;</span>] = data[<span class="hljs-string">&apos;high&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;low&apos;</span>] = data[<span class="hljs-string">&apos;low&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;close&apos;</span>] = data[<span class="hljs-string">&apos;close&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = data[<span class="hljs-string">&apos;preclose&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data = data[data[<span class="hljs-string">&apos;if_trade&apos;</span>]]
+            <span class="hljs-keyword">return</span> data.drop([<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>, <span class="hljs-string">&apos;songzhuangu&apos;</span>, <span class="hljs-string">&apos;if_trade&apos;</span>, <span class="hljs-string">&apos;category&apos;</span>], axis=<span class="hljs-number">1</span>)[data[<span class="hljs-string">&apos;open&apos;</span>] != <span class="hljs-number">0</span>].assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))[start_date:end_date]
+
+        <span class="hljs-keyword">elif</span> if_fq <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;04&apos;</span>, <span class="hljs-string">&apos;ddhfq&apos;</span>]:
+            xdxr_data = QA_fetch_get_stock_xdxr(code)
+
+            info = xdxr_data[xdxr_data[<span class="hljs-string">&apos;category&apos;</span>] == <span class="hljs-number">1</span>]
+
+            bfq_data = data\
+                .assign(date=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .assign(code=str(code))\
+                .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+                .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+                .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                       <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)
+
+            bfq_data[<span class="hljs-string">&apos;if_trade&apos;</span>] = <span class="hljs-keyword">True</span>
+            data = pd.concat([bfq_data, info[[<span class="hljs-string">&apos;category&apos;</span>]]
+                              [bfq_data.index[<span class="hljs-number">0</span>]:end_date]], axis=<span class="hljs-number">1</span>)
+
+            data[<span class="hljs-string">&apos;date&apos;</span>] = data.index
+            data[<span class="hljs-string">&apos;if_trade&apos;</span>].fillna(value=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">True</span>)
+            data = data.fillna(method=<span class="hljs-string">&apos;ffill&apos;</span>)
+            data = pd.concat([data, info[[<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>,
+                                          <span class="hljs-string">&apos;songzhuangu&apos;</span>]][bfq_data.index[<span class="hljs-number">0</span>]:end_date]], axis=<span class="hljs-number">1</span>)
+            data = data.fillna(<span class="hljs-number">0</span>)
+
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = (data[<span class="hljs-string">&apos;close&apos;</span>].shift(<span class="hljs-number">1</span>) * <span class="hljs-number">10</span> - data[<span class="hljs-string">&apos;fenhong&apos;</span>] + data[<span class="hljs-string">&apos;peigu&apos;</span>]
+                                * data[<span class="hljs-string">&apos;peigujia&apos;</span>]) / (<span class="hljs-number">10</span> + data[<span class="hljs-string">&apos;peigu&apos;</span>] + data[<span class="hljs-string">&apos;songzhuangu&apos;</span>])
+            data[<span class="hljs-string">&apos;adj&apos;</span>] = (data[<span class="hljs-string">&apos;preclose&apos;</span>].shift(<span class="hljs-number">-1</span>) /
+                           data[<span class="hljs-string">&apos;close&apos;</span>]).fillna(<span class="hljs-number">1</span>).cumprod()
+            data[<span class="hljs-string">&apos;open&apos;</span>] = data[<span class="hljs-string">&apos;open&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;high&apos;</span>] = data[<span class="hljs-string">&apos;high&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;low&apos;</span>] = data[<span class="hljs-string">&apos;low&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;close&apos;</span>] = data[<span class="hljs-string">&apos;close&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data[<span class="hljs-string">&apos;preclose&apos;</span>] = data[<span class="hljs-string">&apos;preclose&apos;</span>] / data[<span class="hljs-string">&apos;adj&apos;</span>]
+            data = data[data[<span class="hljs-string">&apos;if_trade&apos;</span>]]
+            <span class="hljs-keyword">return</span> data.drop([<span class="hljs-string">&apos;fenhong&apos;</span>, <span class="hljs-string">&apos;peigu&apos;</span>, <span class="hljs-string">&apos;peigujia&apos;</span>, <span class="hljs-string">&apos;songzhuangu&apos;</span>, <span class="hljs-string">&apos;if_trade&apos;</span>, <span class="hljs-string">&apos;category&apos;</span>], axis=<span class="hljs-number">1</span>)[data[<span class="hljs-string">&apos;open&apos;</span>] != <span class="hljs-number">0</span>].assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))[start_date:end_date]
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_min</span><span class="hljs-params">(code, start, end, level=<span class="hljs-string">&apos;1min&apos;</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    api = TdxHq_API()
+    type_ = <span class="hljs-string">&apos;&apos;</span>
+    <span class="hljs-keyword">if</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;5&apos;</span>, <span class="hljs-string">&apos;5m&apos;</span>, <span class="hljs-string">&apos;5min&apos;</span>, <span class="hljs-string">&apos;five&apos;</span>]:
+        level, type_ = <span class="hljs-number">0</span>, <span class="hljs-string">&apos;5min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-string">&apos;1m&apos;</span>, <span class="hljs-string">&apos;1min&apos;</span>, <span class="hljs-string">&apos;one&apos;</span>]:
+        level, type_ = <span class="hljs-number">8</span>, <span class="hljs-string">&apos;1min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;15&apos;</span>, <span class="hljs-string">&apos;15m&apos;</span>, <span class="hljs-string">&apos;15min&apos;</span>, <span class="hljs-string">&apos;fifteen&apos;</span>]:
+        level, type_ = <span class="hljs-number">1</span>, <span class="hljs-string">&apos;15min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;30&apos;</span>, <span class="hljs-string">&apos;30m&apos;</span>, <span class="hljs-string">&apos;30min&apos;</span>, <span class="hljs-string">&apos;half&apos;</span>]:
+        level, type_ = <span class="hljs-number">2</span>, <span class="hljs-string">&apos;30min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;60&apos;</span>, <span class="hljs-string">&apos;60m&apos;</span>, <span class="hljs-string">&apos;60min&apos;</span>, <span class="hljs-string">&apos;1h&apos;</span>]:
+        level, type_ = <span class="hljs-number">3</span>, <span class="hljs-string">&apos;60min&apos;</span>
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+
+        data = pd.concat([api.to_df(api.get_security_bars(level, __select_market_code(
+            str(code)), str(code), (<span class="hljs-number">25</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">26</span>)], axis=<span class="hljs-number">0</span>)
+
+        data = data\
+            .assign(datetime=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>]), code=str(code))\
+            .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>, <span class="hljs-string">&apos;minute&apos;</span>], axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-keyword">False</span>)\
+            .assign(date=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))\
+            .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(x)))\
+            .assign(time_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_time_stamp(x)))\
+            .assign(type=type_).set_index(<span class="hljs-string">&apos;datetime&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)[start:end]
+        <span class="hljs-keyword">return</span> data.assign(datetime=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_latest</span><span class="hljs-params">(code, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    code = [code] <span class="hljs-keyword">if</span> isinstance(code, str) <span class="hljs-keyword">else</span> code
+    api = TdxHq_API(multithread=<span class="hljs-keyword">True</span>)
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        data = pd.concat([api.to_df(api.get_security_bars(
+            <span class="hljs-number">9</span>, __select_market_code(item), item, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)).assign(code=item) <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> code], axis=<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> data\
+            .assign(date=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>]
+                                        .apply(<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])), date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>]
+                    .apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))))\
+            .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>)\
+            .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>, <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_realtime</span><span class="hljs-params">(code=[<span class="hljs-string">&apos;000001&apos;</span>, <span class="hljs-string">&apos;000002&apos;</span>], ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    api = TdxHq_API()
+    __data = pd.DataFrame()
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        code = [code] <span class="hljs-keyword">if</span> type(code) <span class="hljs-keyword">is</span> str <span class="hljs-keyword">else</span> code
+        <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(int(len(code) / <span class="hljs-number">80</span>) + <span class="hljs-number">1</span>):
+            __data = __data.append(api.to_df(api.get_security_quotes(
+                [(__select_market_code(x), x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> code[<span class="hljs-number">80</span> * id_:<span class="hljs-number">80</span> * (id_ + <span class="hljs-number">1</span>)]])))
+            __data[<span class="hljs-string">&apos;datetime&apos;</span>] = datetime.datetime.now()
+        data = __data[[<span class="hljs-string">&apos;datetime&apos;</span>, <span class="hljs-string">&apos;code&apos;</span>, <span class="hljs-string">&apos;open&apos;</span>, <span class="hljs-string">&apos;high&apos;</span>, <span class="hljs-string">&apos;low&apos;</span>, <span class="hljs-string">&apos;price&apos;</span>]]
+        <span class="hljs-keyword">return</span> data.set_index(<span class="hljs-string">&apos;code&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_list</span><span class="hljs-params">(type_=<span class="hljs-string">&apos;stock&apos;</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+
+    api = TdxHq_API()
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        data = pd.concat([pd.concat([api.to_df(api.get_security_list(j, i * <span class="hljs-number">1000</span>)).assign(sse=<span class="hljs-string">&apos;sz&apos;</span> <span class="hljs-keyword">if</span> j == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&apos;sh&apos;</span>).set_index(
+            [<span class="hljs-string">&apos;code&apos;</span>, <span class="hljs-string">&apos;sse&apos;</span>], drop=<span class="hljs-keyword">False</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(int(api.get_security_count(j) / <span class="hljs-number">1000</span>) + <span class="hljs-number">1</span>)], axis=<span class="hljs-number">0</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>)], axis=<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">if</span> type_ <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;stock&apos;</span>, <span class="hljs-string">&apos;gp&apos;</span>]:
+            <span class="hljs-keyword">return</span> pd.concat([data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sz&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">10000</span> &lt;= <span class="hljs-number">30</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">100000</span> != <span class="hljs-number">2</span>],
+                              data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sh&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">100000</span> == <span class="hljs-number">6</span>]]).assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))
+                <span class="hljs-comment">#.assign(szm=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join([y[0] for y in lazy_pinyin(x)])))\</span>
+                <span class="hljs-comment">#.assign(quanpin=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join(lazy_pinyin(x))))</span>
+        <span class="hljs-keyword">elif</span> type_ <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-string">&apos;zs&apos;</span>]:
+
+            <span class="hljs-keyword">return</span> pd.concat([data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sz&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">1000</span> &gt;= <span class="hljs-number">399</span>],
+                              data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sh&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">1000</span> == <span class="hljs-number">0</span>]]) \
+                .sort_index()\
+                .assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))
+                <span class="hljs-comment">#.assign(szm=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join([y[0] for y in lazy_pinyin(x)])))\</span>
+                <span class="hljs-comment">#.assign(quanpin=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join(lazy_pinyin(x))))</span>
+        <span class="hljs-keyword">elif</span> type_ <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;etf&apos;</span>, <span class="hljs-string">&apos;ETF&apos;</span>]:
+            <span class="hljs-keyword">return</span> pd.concat([data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sz&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">10000</span> == <span class="hljs-number">15</span>],
+                              data[data[<span class="hljs-string">&apos;sse&apos;</span>] == <span class="hljs-string">&apos;sh&apos;</span>][data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: int(x)))[<span class="hljs-string">&apos;code&apos;</span>] // <span class="hljs-number">10000</span> == <span class="hljs-number">51</span>]]).sort_index().assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))\
+                <span class="hljs-comment">#.assign(szm=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join([y[0] for y in lazy_pinyin(x)])))\</span>
+                <span class="hljs-comment">#.assign(quanpin=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join(lazy_pinyin(x))))</span>
+
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> data.assign(code=data[<span class="hljs-string">&apos;code&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))
+            <span class="hljs-comment">#.assign(szm=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join([y[0] for y in lazy_pinyin(x)])))\</span>
+            <span class="hljs-comment">#    .assign(quanpin=data[&apos;name&apos;].apply(lambda x: &apos;&apos;.join(lazy_pinyin(x))))</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_index_day</span><span class="hljs-params">(code, start_date, end_date, level=<span class="hljs-string">&apos;day&apos;</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x6307;&#x6570;&#x65E5;&#x7EBF;&apos;</span>
+    api = TdxHq_API()
+    <span class="hljs-keyword">if</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;d&apos;</span>, <span class="hljs-string">&apos;D&apos;</span>, <span class="hljs-string">&apos;DAY&apos;</span>, <span class="hljs-string">&apos;Day&apos;</span>]:
+        level = <span class="hljs-number">9</span>
+    <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;w&apos;</span>, <span class="hljs-string">&apos;W&apos;</span>, <span class="hljs-string">&apos;Week&apos;</span>, <span class="hljs-string">&apos;week&apos;</span>]:
+        level = <span class="hljs-number">5</span>
+    <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, <span class="hljs-string">&apos;m&apos;</span>, <span class="hljs-string">&apos;Month&apos;</span>]:
+        level = <span class="hljs-number">6</span>
+    <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;Q&apos;</span>, <span class="hljs-string">&apos;Quarter&apos;</span>, <span class="hljs-string">&apos;q&apos;</span>]:
+        level = <span class="hljs-number">10</span>
+    <span class="hljs-keyword">elif</span> level <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-string">&apos;Y&apos;</span>, <span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;Year&apos;</span>]:
+        level = <span class="hljs-number">11</span>
+
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;5&apos;</span>, <span class="hljs-string">&apos;1&apos;</span>]:  <span class="hljs-comment"># ETF</span>
+            data = pd.concat([api.to_df(api.get_security_bars(
+                level, <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;0&apos;</span>, <span class="hljs-string">&apos;8&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, code, (<span class="hljs-number">25</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">26</span>)], axis=<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">else</span>:
+            data = pd.concat([api.to_df(api.get_index_bars(
+                level, <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;0&apos;</span>, <span class="hljs-string">&apos;8&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, code, (<span class="hljs-number">25</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">26</span>)], axis=<span class="hljs-number">0</span>)
+        data = data.assign(date=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))).assign(code=str(code))\
+            .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>])))\
+            .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)\
+            .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>,
+                   <span class="hljs-string">&apos;minute&apos;</span>, <span class="hljs-string">&apos;datetime&apos;</span>], axis=<span class="hljs-number">1</span>)[start_date:end_date]
+        <span class="hljs-keyword">return</span> data.assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_index_min</span><span class="hljs-params">(code, start, end, level=<span class="hljs-string">&apos;1min&apos;</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x6307;&#x6570;&#x5206;&#x949F;&#x7EBF;&apos;</span>
+    api = TdxHq_API()
+    type_ = <span class="hljs-string">&apos;&apos;</span>
+    <span class="hljs-keyword">if</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;5&apos;</span>, <span class="hljs-string">&apos;5m&apos;</span>, <span class="hljs-string">&apos;5min&apos;</span>, <span class="hljs-string">&apos;five&apos;</span>]:
+        level, type_ = <span class="hljs-number">0</span>, <span class="hljs-string">&apos;5min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-string">&apos;1m&apos;</span>, <span class="hljs-string">&apos;1min&apos;</span>, <span class="hljs-string">&apos;one&apos;</span>]:
+        level, type_ = <span class="hljs-number">8</span>, <span class="hljs-string">&apos;1min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;15&apos;</span>, <span class="hljs-string">&apos;15m&apos;</span>, <span class="hljs-string">&apos;15min&apos;</span>, <span class="hljs-string">&apos;fifteen&apos;</span>]:
+        level, type_ = <span class="hljs-number">1</span>, <span class="hljs-string">&apos;15min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;30&apos;</span>, <span class="hljs-string">&apos;30m&apos;</span>, <span class="hljs-string">&apos;30min&apos;</span>, <span class="hljs-string">&apos;half&apos;</span>]:
+        level, type_ = <span class="hljs-number">2</span>, <span class="hljs-string">&apos;30min&apos;</span>
+    <span class="hljs-keyword">elif</span> str(level) <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;60&apos;</span>, <span class="hljs-string">&apos;60m&apos;</span>, <span class="hljs-string">&apos;60min&apos;</span>, <span class="hljs-string">&apos;1h&apos;</span>]:
+        level, type_ = <span class="hljs-number">3</span>, <span class="hljs-string">&apos;60min&apos;</span>
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;5&apos;</span>, <span class="hljs-string">&apos;1&apos;</span>]:  <span class="hljs-comment"># ETF</span>
+            data = pd.concat([api.to_df(api.get_security_bars(
+                level, <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;0&apos;</span>, <span class="hljs-string">&apos;8&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, code, (<span class="hljs-number">25</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">26</span>)], axis=<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">else</span>:
+            data = pd.concat([api.to_df(api.get_index_bars(
+                level, <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> str(code)[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;0&apos;</span>, <span class="hljs-string">&apos;8&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, code, (<span class="hljs-number">25</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">26</span>)], axis=<span class="hljs-number">0</span>)
+        data = data\
+            .assign(datetime=pd.to_datetime(data[<span class="hljs-string">&apos;datetime&apos;</span>]), code=str(code))\
+            .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>, <span class="hljs-string">&apos;hour&apos;</span>, <span class="hljs-string">&apos;minute&apos;</span>], axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-keyword">False</span>)\
+            .assign(date=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))\
+            .assign(date_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_date_stamp(x)))\
+            .assign(time_stamp=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: QA_util_time_stamp(x)))\
+            .assign(type=type_).set_index(<span class="hljs-string">&apos;datetime&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)[start:end]
+        <span class="hljs-comment"># data</span>
+        <span class="hljs-keyword">return</span> data.assign(datetime=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__QA_fetch_get_stock_transaction</span><span class="hljs-params">(code, day, retry, api)</span>:</span>
+    data_ = pd.concat([api.to_df(api.get_history_transaction_data(
+        __select_market_code(str(code)), str(code), (<span class="hljs-number">20</span> - i) * <span class="hljs-number">800</span>, <span class="hljs-number">800</span>, QA_util_date_str2int(day))) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">21</span>)], axis=<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(retry):
+        <span class="hljs-keyword">if</span> len(data_) &lt; <span class="hljs-number">2</span>:
+            <span class="hljs-keyword">return</span> __QA_fetch_get_stock_transaction(code, day, <span class="hljs-number">0</span>, api)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> data_.assign(date=day).assign(datetime=pd.to_datetime(data_[<span class="hljs-string">&apos;time&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(day) + <span class="hljs-string">&apos; &apos;</span> + x)))\
+                        .assign(code=str(code)).assign(order=range(len(data_.index))).set_index(<span class="hljs-string">&apos;datetime&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_transaction</span><span class="hljs-params">(code, start, end, retry=<span class="hljs-number">2</span>, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x9010;&#x7B14;&#x6210;&#x4EA4;&apos;</span>
+    api = TdxHq_API()
+
+    real_start, real_end = QA_util_get_real_datelist(start, end)
+    real_id_range = []
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        data = pd.DataFrame()
+        <span class="hljs-keyword">for</span> index_ <span class="hljs-keyword">in</span> range(trade_date_sse.index(real_start), trade_date_sse.index(real_end) + <span class="hljs-number">1</span>):
+
+            <span class="hljs-keyword">try</span>:
+                data_ = __QA_fetch_get_stock_transaction(
+                    code, trade_date_sse[index_], retry, api)
+                <span class="hljs-keyword">if</span> len(data_) &lt; <span class="hljs-number">1</span>:
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+            <span class="hljs-keyword">except</span>:
+                QA_util_log_info(<span class="hljs-string">&apos;Wrong in Getting %s history transaction data in day %s&apos;</span> % (
+                    code, trade_date_sse[index_]))
+            <span class="hljs-keyword">else</span>:
+                QA_util_log_info(<span class="hljs-string">&apos;Successfully Getting %s history transaction data in day %s&apos;</span> % (
+                    code, trade_date_sse[index_]))
+                data = data.append(data_)
+
+        <span class="hljs-keyword">return</span> data.assign(datetime=data[<span class="hljs-string">&apos;datetime&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">19</span>]))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_xdxr</span><span class="hljs-params">(code, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x9664;&#x6743;&#x9664;&#x606F;&apos;</span>
+    api = TdxHq_API()
+    market_code = __select_market_code(code)
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        category = {
+            <span class="hljs-string">&apos;1&apos;</span>: <span class="hljs-string">&apos;&#x9664;&#x6743;&#x9664;&#x606F;&apos;</span>, <span class="hljs-string">&apos;2&apos;</span>: <span class="hljs-string">&apos;&#x9001;&#x914D;&#x80A1;&#x4E0A;&#x5E02;&apos;</span>, <span class="hljs-string">&apos;3&apos;</span>: <span class="hljs-string">&apos;&#x975E;&#x6D41;&#x901A;&#x80A1;&#x4E0A;&#x5E02;&apos;</span>, <span class="hljs-string">&apos;4&apos;</span>: <span class="hljs-string">&apos;&#x672A;&#x77E5;&#x80A1;&#x672C;&#x53D8;&#x52A8;&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>: <span class="hljs-string">&apos;&#x80A1;&#x672C;&#x53D8;&#x5316;&apos;</span>,
+            <span class="hljs-string">&apos;6&apos;</span>: <span class="hljs-string">&apos;&#x589E;&#x53D1;&#x65B0;&#x80A1;&apos;</span>, <span class="hljs-string">&apos;7&apos;</span>: <span class="hljs-string">&apos;&#x80A1;&#x4EFD;&#x56DE;&#x8D2D;&apos;</span>, <span class="hljs-string">&apos;8&apos;</span>: <span class="hljs-string">&apos;&#x589E;&#x53D1;&#x65B0;&#x80A1;&#x4E0A;&#x5E02;&apos;</span>, <span class="hljs-string">&apos;9&apos;</span>: <span class="hljs-string">&apos;&#x8F6C;&#x914D;&#x80A1;&#x4E0A;&#x5E02;&apos;</span>, <span class="hljs-string">&apos;10&apos;</span>: <span class="hljs-string">&apos;&#x53EF;&#x8F6C;&#x503A;&#x4E0A;&#x5E02;&apos;</span>,
+            <span class="hljs-string">&apos;11&apos;</span>: <span class="hljs-string">&apos;&#x6269;&#x7F29;&#x80A1;&apos;</span>, <span class="hljs-string">&apos;12&apos;</span>: <span class="hljs-string">&apos;&#x975E;&#x6D41;&#x901A;&#x80A1;&#x7F29;&#x80A1;&apos;</span>, <span class="hljs-string">&apos;13&apos;</span>:  <span class="hljs-string">&apos;&#x9001;&#x8BA4;&#x8D2D;&#x6743;&#x8BC1;&apos;</span>, <span class="hljs-string">&apos;14&apos;</span>: <span class="hljs-string">&apos;&#x9001;&#x8BA4;&#x6CBD;&#x6743;&#x8BC1;&apos;</span>}
+        data = api.to_df(api.get_xdxr_info(market_code, code))
+        data = data\
+            .assign(date=pd.to_datetime(data[[<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>]]))\
+            .drop([<span class="hljs-string">&apos;year&apos;</span>, <span class="hljs-string">&apos;month&apos;</span>, <span class="hljs-string">&apos;day&apos;</span>], axis=<span class="hljs-number">1</span>)\
+            .assign(category_meaning=data[<span class="hljs-string">&apos;category&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: category[str(x)]))\
+            .assign(code=str(code))\
+            .rename(index=str, columns={<span class="hljs-string">&apos;panhouliutong&apos;</span>: <span class="hljs-string">&apos;liquidity_after&apos;</span>,
+                                        <span class="hljs-string">&apos;panqianliutong&apos;</span>: <span class="hljs-string">&apos;liquidity_before&apos;</span>, <span class="hljs-string">&apos;houzongguben&apos;</span>: <span class="hljs-string">&apos;shares_after&apos;</span>,
+                                        <span class="hljs-string">&apos;qianzongguben&apos;</span>: <span class="hljs-string">&apos;shares_before&apos;</span>})\
+            .set_index(<span class="hljs-string">&apos;date&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)
+        <span class="hljs-keyword">return</span> data.assign(date=data[<span class="hljs-string">&apos;date&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: str(x)[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_block</span><span class="hljs-params">(ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x677F;&#x5757;&#x6570;&#x636E;&apos;</span>
+    api = TdxHq_API()
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+
+        data = pd.concat([api.to_df(api.get_and_parse_block_info(<span class="hljs-string">&quot;block_gn.dat&quot;</span>)),
+                          api.to_df(api.get_and_parse_block_info(<span class="hljs-string">&quot;block.dat&quot;</span>)),
+                          api.to_df(api.get_and_parse_block_info(
+                              <span class="hljs-string">&quot;block_zs.dat&quot;</span>)),
+                          api.to_df(api.get_and_parse_block_info(<span class="hljs-string">&quot;block_fg.dat&quot;</span>))])
+
+        <span class="hljs-keyword">if</span> len(data) &gt; <span class="hljs-number">10</span>:
+            <span class="hljs-keyword">return</span> data.assign(source=<span class="hljs-string">&apos;tdx&apos;</span>).set_index(<span class="hljs-string">&apos;code&apos;</span>, drop=<span class="hljs-keyword">False</span>, inplace=<span class="hljs-keyword">False</span>)
+        <span class="hljs-keyword">else</span>:
+            QA_util_log_info(<span class="hljs-string">&apos;Wrong with fetch block &apos;</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">QA_fetch_get_stock_info</span><span class="hljs-params">(code, ip=best_ip, port=<span class="hljs-number">7709</span>)</span>:</span>
+    <span class="hljs-string">&apos;&#x80A1;&#x7968;&#x8D22;&#x52A1;&#x6570;&#x636E;&apos;</span>
+    api = TdxHq_API()
+    market_code = __select_market_code(code)
+    <span class="hljs-keyword">with</span> api.connect(ip, port):
+        <span class="hljs-keyword">return</span> api.to_df(api.get_finance_info(market_code, code))
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-comment"># print(QA_fetch_get_stock_day(&apos;000001&apos;,&apos;2017-07-03&apos;,&apos;2017-07-10&apos;))</span>
+    <span class="hljs-comment"># print(QA_fetch_get_stock_day(&apos;000001&apos;, &apos;2013-07-01&apos;, &apos;2013-07-09&apos;))</span>
+    <span class="hljs-comment"># print(QA_fetch_get_stock_realtime(&apos;000001&apos;))</span>
+    print(QA_fetch_get_index_day(<span class="hljs-string">&apos;000001&apos;</span>, <span class="hljs-string">&apos;2017-01-01&apos;</span>, <span class="hljs-string">&apos;2017-07-01&apos;</span>))
+    <span class="hljs-comment"># print(QA_fetch_get_stock_transaction(&apos;000001&apos;, &apos;2017-07-03&apos;, &apos;2017-07-10&apos;))</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"股票数据下载的封装(日线/分钟线/实时价格/股票列/指数/etf/历史分笔/除权除息/复权)","level":"1.6.4","depth":2,"previous":{"title":"基金价格问题","level":"1.6.3","depth":2,"path":"hq_price.md","ref":"hq_price.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","comment"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"go","name":"Go"}],"split":true,"theme":"light"},"comment":{"highlightCommented":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"RainX","pdf":{"pageNumbers":true,"fontSize":16,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"pytdx","language":"en","links":{"sidebar":{"pytdx":"https://www.gitbook.com/book/rainx/pytdx"},"gitbook":true},"gitbook":"*","description":"python通达信数据接口（pytdx）的官方文档 "},"file":{"path":"api_wrapper.md","mtime":"2017-11-23T00:58:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-23T01:08:38.102Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-comment/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    
+<div><script style="display: none;" type="application/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57505611-7', 'auto', {name: 'microcdn'});
+  ga('microcdn.send', 'pageview');
+
+  var _cdn_prev_loc = window.location.pathname;
+  window.setInterval(function () {
+    if (window.location.pathname !== _cdn_prev_loc) {
+      _cdn_prev_loc = window.location.pathname;
+      ga('microcdn.send', 'pageview');
+    }
+  }, 100);
+
+</script></div>
+</body>
+</html>
+

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>实盘♠易
+ - 爱股网</title>
+
+        <!-- Meta -->
+        <meta name="description" content="实盘易是管理通达信、同花顺等交易终端，并对为用户提供基于 HTTP 协议 RESTFul Service 的软件
+">
+        
+        <!-- Styles -->
+        <link href="/social/min/?g=bootstrap_css&v=1.0" rel="stylesheet" type="text/css">
+        <link href="/social/min/?g=font-awesome_css&v=1.0" rel="stylesheet" type="text/css">
+        <link href="/social/min/?g=common_css&v=1.0" rel="stylesheet" type="text/css">
+
+        <style>
+*[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    height: 75px;
+    visibility: hidden;
+}
+.sidebar {
+    width: 210px;
+}
+.sidebar .nav .nav>.active:focus>a,
+.sidebar .nav .nav>.active:hover>a,
+.sidebar .nav .nav>.active>a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+.jumbotron {
+    color: white;
+    background-color: #ce4844;
+}
+.table-layout-fixed {
+    table-layout: fixed;
+}
+.table>tbody>tr>td.align-middle {
+    vertical-align: middle;
+}
+.hot {
+    color: red !important;
+}
+</style>
+        
+        <!-- Fonts -->
+    </head>
+    <body id="app-layout">
+
+        <nav class="navbar navbar-my navbar-fixed-top" ng-controller="NavController">
+	<div class="container container-fixed">
+		<div class="navbar-header">
+
+			<!-- Collapsed Hamburger -->
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#frontend-navbar-collapse">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<!-- Branding Image -->
+			<a class="navbar-brand" href="http://www.iguuu.com">
+				爱股网
+			</a>
+		</div><!--navbar-header-->
+
+		<div class="collapse navbar-collapse" id="frontend-navbar-collapse">
+
+			<!-- Left Side Of Navbar -->
+			<ul class="nav navbar-nav">
+				<li class=""><a href="http://www.iguuu.com">首页</a></li>
+				<li class=""><a href="http://www.iguuu.com/portfolio/discovery" target="_blank">实盘榜</a></li>
+				<li class="active"><a href="http://www.iguuu.com/e" target="_blank">实盘易</a></li>
+				<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">应用 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/screener" target="_blank">选股</a></li>
+                        <li><a href="/comparison" target="_blank">比较</a></li>
+                        <li><a href="/margin" target="_blank">融资融券</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/market/board" target="_blank">A股历史平均市盈率、市净率</a></li>
+                        <li><a href="/market/industry" target="_blank">A股行业平均市盈率、市净率</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/app/dcf" target="_blank">现金流折现(DCF)</a></li>
+                        <li><a href="/app/irr" target="_blank">内部收益率(IRR)</a></li>
+                        <li><a href="/app/kelly-formula" target="_blank">凯利公式(Kelly Formula)</a></li>
+                    </ul>
+                </li>
+				<li><a href="/discuz/forum.php" target="_blank">论坛</a></li>
+			</ul>
+
+			<!-- Right Side Of Navbar -->
+			<ul class="nav navbar-nav navbar-right">
+
+				<!-- Authentication Links -->
+									<li class=""><a href="http://www.iguuu.com/login">登录</a></li>
+					<li class=""><a href="http://www.iguuu.com/register">注册</a></li>
+				
+			</ul>
+			<form class="navbar-form navbar-left">
+				<input type="text" class="form-control" placeholder="股票代码/名称/简称..." ng-model="symbol" uib-typeahead="stock.value as stock.label for stock in searchStocks($viewValue)" typeahead-on-select="onSelect($item, $model, $label)">
+			</form>
+		</div><!--navbar-collapse-->
+	</div><!--container-->
+</nav>
+
+        <div id="main" class="container container-fixed">
+                <div class="row">
+		<div class="col-md-3 hidden-xs hidden-sm">
+	        <div class="sidebar">
+                <ul class="nav nav-stacked">
+                    <li><a href="#introduction">功能</a></li>
+                    <li><a href="#installation">安装</a></li>
+                    <li><a href="#test">测试</a></li>
+                    <li><a href="#settings">设置</a></li>
+                    <li><a href="#api">API</a></li>
+                    <li><a href="#sdk">SDK</a></li>
+                    <li><a href="#integration">集成</a></li>
+                    <li><a href="#purchase">购买</a></li>
+                    <li><a href="#activity">活动 <i class="fa fa-fire hot" aria-hidden="true"></i></a></li>
+                    <li><a href="#precautions">注意事项</a></li>
+                    <li><a href="#support">技术支持</a></li>
+                </ul>
+            </div>
+		</div>
+		<div class="col-md-9">
+            <div class="jumbotron">
+                <h1>实盘易</h1>
+                <p>领先的股票自动化交易解决方案</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="http://www.iguuu.com/download/e/installers/ShiPanE.exe" role="button">下载</a>
+                </p>
+            </div>
+            <div>
+                官方 QQ 群：115279569
+                <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=1ce867356702f5f7c56d07d5c694e37a3b9a523efce199bb0f6ff30410c6185d"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="实盘易-股票自动交易" title="实盘易-股票自动交易"></a>
+            </div>
+		    <div>
+                <h1 id="introduction" class="page-header">功能</h1>
+                <p>实盘易是管理通达信、同花顺等交易客户端，并对为A股量化投资者提供基于 HTTP 协议 RESTFul API 的软件。</p>
+                <p>
+                    <ul>
+                        <li>
+                            交易
+                            <ul>
+                                <li>买入、市价买入</li>
+                                <li>卖出、市价卖出</li>
+                                <li>撤单</li>
+                            </ul>
+                        </li>
+                        <li>
+                            查询
+                            <ul>
+                                <li>资金股份</li>
+                                <li>当日委托</li>
+                                <li>当日成交</li>
+                                <li>当日未成交</li>
+                                <li>其他自定义查询</li>
+                            </ul>
+                        </li>
+                        <li>
+                            其他
+                            <ul>
+                                <li>RESTful API</li>
+                                <li>支持<strong>多账户</strong></li>
+                                <li>支持融资融券账户</li>
+                                <li>自动登录</li>
+                                <li>自动打新</li>
+                                <li>多平台（聚宽、米筐、MT4等）集成</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <h2>软件截图</h2>
+                <p>
+                    <img style="width: 500px; height: 390px" src="/social/resources/assets/img/screenshot.png">
+                </p>
+            </div>
+		    <div>
+                <h1 id="installation" class="page-header">安装</h1>
+                <h2>最低配置</h2>
+                <ul>
+                    <li>
+                        Windows 7 及以上操作系统，Windows Server 2008 及以上操作系统
+                    </li>
+                    <li>
+                        内存 1GB 以上
+                    </li>
+                </ul>
+                <h2>推荐配置</h2>
+                <ul>
+                    <li>
+                        Windows Server 2012 R2
+                    </li>
+                    <li>
+                        内存 1GB 以上
+                    </li>
+                </ul>
+                <h2>本地机器</h2>
+                <p>
+                    实盘易在下单过程中会弹出窗口。为确保交易不被干扰，建议您在专用机器或虚拟机中部署实盘易。
+                </p>
+                <h2>云服务器</h2>
+                <p>
+                    在云服务器（如阿里云等）上部署实盘易时，由于 Windows 自带的远程桌面连接（RDP）存在一些技术问题，因此必须使用 VNC。这里我们推荐 <a href="http://www.tightvnc.com/" target="_blank" rel="nofollow">TightVNC</a>。
+                </p>
+                <h3>推广</h3>
+                <p>
+                    我有几张阿里云幸运券分享给你，用券购买或者升级阿里云相应产品会有特惠惊喜哦！把想要买的产品的幸运券都领走吧！快下手，马上就要抢光了。
+                    <a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=7rw7m3rc&amp;productCode=vm" target="_blank" rel="nofollow">点击领取</a>。
+                </p>
+                <p>
+                    使用<a href="https://www.aliyun.com/product/ecs" target="_blank" rel="nofollow">阿里云</a>推荐码：pgne7a，第一次购买云服务器或云数据库可享受原价<strong>9折</strong>优惠。
+                </p>
+                <h2>交易客户端</h2>
+                <p>
+                    实盘易必须和交易客户端一起使用。
+                </p>
+                <ul>
+                    <li><a href="http://mock.tdx.com.cn/site/app/mock/index/index.html" target="_blank" rel="nofollow">通达信模拟交易</a>
+                    <li><a href="http://www.tdx.com.cn/qs.html" target="_blank" rel="nofollow">通达信券商系统</a>
+                    <li><a href="http://download.10jqka.com.cn/" target="_blank" rel="nofollow">同花顺免费版</a>
+                </ul>
+            </div>
+		    <div>
+                <h1 id="test" class="page-header">测试</h1>
+                <p>
+                    以买入下单 API 为例，使用 <a href="http://www.firefox.com.cn/" target="_blank" rel="nofollow">FireFox</a> + <a href="https://addons.mozilla.org/zh-cn/firefox/addon/restclient/" target="_blank" rel="nofollow">RESTClient</a> 附加组件。
+                </p>
+                <p>
+                    <img style="width: 690px; height: 417px" src="/social/resources/assets/img/RESTClient.png">
+                </p>
+            </div>
+		    <div>
+                <h1 id="settings" class="page-header">设置</h1>
+                <p>
+                    见主界面 <i>工具&gt;设置</i> 菜单。
+                </p>
+                <h2>交易客户端</h1>
+                <ul>
+                    <li>交易客户端需要手动登录一次</li>
+                    <li>同花顺自动登录配置的 command_line 值需要和桌面快捷方式的目标一致</li>
+                </ul>
+                <h2>云服务器</h2>
+                <ul>
+                    <li>安全组配置中放行实盘易端口（默认8888）</li>
+                    <li>关闭防火墙</li>
+                </ul>
+            </div>
+            <div>
+                <h1 id="api" class="page-header">
+                    API 文档
+                </h1>
+                <p>
+                    见主界面 <i>帮助&gt;查看帮助</i> 菜单。
+                </p>
+                <pre>
+查询账号
+GET http://localhost:8888/accounts
+
+查询资金股份
+GET http://localhost:8888/positions
+
+查询投资组合
+GET http://localhost:8888/positions
+Accept: application/vnd.joinquant+json
+
+查询当日委托
+GET http://localhost:8888/orders
+
+查询撤单
+GET http://localhost:8888/orders?status=open
+
+查询当日成交
+GET http://localhost:8888/orders?status=filled
+
+买入
+POST http://localhost:8888/orders
+Content-Type: application/json
+
+{
+  "action": "BUY",
+  "symbol" : "000001",
+  "type": "LIMIT",
+  "priceType" : 0,
+  "price" : 9.00,
+  "amount" : 100
+}
+
+type 可选择：
+
+LIMIT - 限价单，需指定 price
+MARKET - 市价单，需指定 priceType（非 0）
+priceType 可选择：
+上海交易所：
+
+0 - 限价委托
+4 - 五档即时成交剩余撤销
+6 - 五档即时成交剩余转限
+深圳交易所：
+
+0 - 限价委托
+1 - 对手方最优价格委托
+2 - 本方最优价格委托
+3 - 即时成交剩余撤销委托
+4 - 五档即时成交剩余撤销
+5 - 全额成交或撤销委托
+amountProportion 和 amount 二选一
+amountProportion 可选择：ALL, 1/2, 1/3, 1/4, 1/5
+
+以上参数设置也适用于"卖出"
+
+卖出
+POST http://localhost:8888/orders
+Content-Type: application/json
+
+{
+  "action": "SELL",
+  "symbol" : "000001",
+  "type": "LIMIT",
+  "priceType" : 0,
+  "price" : 9.00,
+  "amount" : 100
+}
+
+撤单
+DELETE http://localhost:8888/orders/O1234
+（注：上面 URL 中的 O1234 应替换为相应的委托编号）
+
+撤单全部
+DELETE http://localhost:8888/orders
+
+查询其他
+GET http://localhost:8888?navigation=查询>当日委托
+
+查询状态
+GET http://localhost:8888/statuses
+
+生成调仓信号
+POST http://localhost:8888/adjustments
+(详见用户手册)
+
+查询交易客户端状态
+GET http://localhost:8888/clients
+GET http://localhost:8888/clients/client-1
+
+更改交易客户端状态
+PATCH http://localhost:8888/clients
+PATCH http://localhost:8888/clients/client-1
+       {
+              "status": "LOGGED"
+       }
+
+(详见用户手册)
+                </pre>
+                <h2>多账户</h2>
+                <p>多交易客户端的情况下，可以在 URL 中添加 client 参数以区分交易客户端。如果系统中只运行了一个交易客户端，可忽略该参数。</p>
+                <p>client 参数值可以是某一交易客户端标题关键字、交易账号关键字的汉字、拼音。</p>
+                <p>规则：client=[title|account|*]:<关键字>[,...]</p>
+                <p>以“通达信模拟交易终端”，登录交易账号为“15012345678”为例，查询账号可以选用以下任一 URL。</p>
+                <ul>
+                    <li>http://localhost:8888/accounts?client=title:monijiaoyi</li>
+                    <li>http://localhost:8888/accounts?client=title:模拟交易 （“模拟交易”需做 URL encoding）</li>
+                    <li>http://localhost:8888/accounts?client=account:150</li>
+                    <li>http://localhost:8888/accounts?client=*:monijiaoyi</li>
+                    <li>http://localhost:8888/accounts?client=*:150</li>
+                </ul>
+
+                <h2>安全</h2>
+                <p>如需做权限设置，请在URL中添加 key 参数。key 值的设置请参阅“设置”章节。</p>
+                <p>规则：key=[配置中定义的值]</p>
+            </div>
+            <div>
+                <h1 id="sdk" class="page-header">
+                    SDK
+                </h1>
+                <h2>功能</h2>
+                <ul>
+                    <li>简单易用的实盘易 API 封装</li>
+                    <li>多账号自动新股申购（自动打新）</li>
+                    <li>聚宽（JoinQuant）集成</li>
+                    <li>米筐（RiceQuant）集成</li>
+                </ul>
+                <p>
+                    Python: <a href="https://github.com/sinall/ShiPanE-Python-SDK" target="_blank">ShiPanE-Python-SDK</a>
+                </p>
+                <p>
+                    PyPi: <a href="https://pypi.python.org/pypi/shipane-sdk" target="_blank">shipane-sdk</a>
+                </p>
+                <p>
+                    C#: <a href="http://git.oschina.net/ybo1990/ShiPanETradingSDK" target="_blank">ShiPanETradingSDK</a>
+                </p>
+            </div>
+            <div>
+                <h1 id="integration" class="page-header">
+                    集成
+                </h1>
+                <h2>集成方案</h2>
+                <p>
+                    <img style="width: 500px; height: 390px" src="/social/resources/assets/img/architecture.png">
+                </p>
+                <p>
+                    请参阅 <a href="https://github.com/sinall/ShiPanE-Python-SDK" target="_blank">SDK 文档</a>。
+                </p>
+            </div>
+            <div>
+                <h1 id="purchase" class="page-header">
+                    购买
+                </h1>
+                <table class="table table-bordered table-layout-fixed">
+                    <colgroup>
+                        <col style="width: 45px;"/>
+                        <col style="width: 75px;"/>
+                        <col/>
+                        <col/>
+                        <col/>
+                        <col/>
+                        <col/>
+                        <col/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th class="text-right">试用版</th>
+                            <th class="text-right">免费版</th>
+                            <th class="text-right">散户版</th>
+                            <th class="text-right">中户版</th>
+                            <th class="text-right">大户版</th>
+                            <th class="text-right">超大户版</th>
+                            <th class="text-right">机构版</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                          <tr>
+                              <td class="align-middle" colspan="2">价格(月)</td>
+                              <td class="text-center">--</td>
+                              <td class="text-right">0元</td>
+                              <td class="text-right">48元</td>
+                              <td class="text-right">99元</td>
+                              <td class="text-right">150元</td>
+                              <td class="text-right">270元</td>
+                              <td class="text-right">900元</td>
+                          </tr>
+                          <tr>
+                              <td class="align-middle" rowspan="5">权限</td>
+                              <td>总资产 <span>&LessSlantEqual;</span></td>
+                              <td class="text-center">--</td>
+                              <td class="text-right">1万</td>
+                              <td class="text-right">50万</td>
+                              <td class="text-right">150万</td>
+                              <td class="text-right">500万</td>
+                              <td class="text-right">2000万</td>
+                              <td class="text-right">1亿</td>
+                          </tr>
+                          <tr>
+                              <td>自动登录</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                          </tr>
+                          <tr>
+                              <td>自动打新</td>
+                              <td class="text-center">&cross;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                          </tr>
+                          <tr>
+                              <td>模拟账户</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                          </tr>
+                          <tr>
+                              <td>券商系统</td>
+                              <td class="text-center">&cross;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                              <td class="text-center">&check;</td>
+                          </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="9">
+                                备注：
+                                <ul>
+                                    <li>爱股网账户支持多个实盘易实例运行，目前只收取单实例费用，如有调整另行通知。</li>
+                                    <li>为保护账户安全，避免账号密码共享泄漏被盗，爱股网帐号仅限个人使用，不允许转借或租赁他人；否则一经系统核实将自动封禁该账号。</li>
+                                    <li><i class="fa fa-fire hot" aria-hidden="true"></i> 充值满12个月送1个月优惠活动火热进行中。</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <h2>流程</h2>
+                <ul>
+                    <li>首先 <a href="/discuz/home.php?mod=spacecp&ac=plugin&op=credit&id=shanpay:exchange" target="_blank">积分充值</a></li>
+                    <li>然后 <a href="/discuz/home.php?mod=spacecp&ac=usergroup&do=list" target="_blank">购买用户组</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1 id="activity" class="page-header">
+                    活动 <i class="fa fa-fire hot" aria-hidden="true"></i>
+                </h1>
+                <h2>介绍</h2>
+                <p>在合作券商指定营业部开户并入金，将获得与资金相对应的实盘易用户组积分 1 年。</p>
+                <h2>流程</h2>
+                <ul>
+                    <li>联系爱股网站长报名参加活动。<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=1ce867356702f5f7c56d07d5c694e37a3b9a523efce199bb0f6ff30410c6185d"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="实盘易-股票自动交易" title="实盘易-股票自动交易"></a></li>
+                    <li>联系合作券商负责人开户及入金。</li>
+                    <li>合作券商负责人按月通过爱股网转账发放相应积分。</li>
+                    <li>购买用户组。</li>
+                </ul>
+                <p>该活动最终解释权归爱股网所有。</p>
+            </div>
+            <div>
+                <h1 id="precautions" class="page-header">
+                    注意事项
+                </h1>
+                <ul>
+                    <li>
+                        首次安装交易软件，需手工登录一次，否则无法自动登录。
+                    </li>
+                    <li>
+                        自动登录如果遇到密码无法输入的情况，请尝试将实盘易添加至360信任区。
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h1 id="support" class="page-header">
+                    技术支持
+                </h1>
+                <p>
+                    QQ 群：115279569 <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=1ce867356702f5f7c56d07d5c694e37a3b9a523efce199bb0f6ff30410c6185d"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="实盘易-股票自动交易" title="实盘易-股票自动交易"></a>
+                </p>
+            </div>
+        </div>
+    </div><!-- row -->
+        </div><!-- container -->
+
+		<footer>
+            			<div class="container container-fixed">
+                <p>© 2016 爱股网</p>
+            </div>
+		</footer>
+
+		<script type="text/ng-template" id="collapse-ctrl-tpl">
+			<tfoot>
+				<tr>
+					<td colspan="{{colspan}}">
+						<div class="collapse-control pull-right" ng-click="toggleCollapse()" ng-switch="collapsed">
+							<div ng-switch-when="false"><i class="fa fa-minus"></i> 收起</div>
+							<div ng-switch-when="true"><i class="fa fa-plus"></i> 展开</div>
+						</div>
+					</td>
+				</tr>
+			</tfoot>
+		</script>
+
+        <!-- JavaScripts -->
+        <script src="/social/min/?g=jquery_js&v=1.0" type="text/javascript"></script>
+        <script src="/social/min/?g=bootstrap_js&v=1.0" type="text/javascript"></script>
+        <script src="/social/min/?g=angular_js&v=1.0" type="text/javascript"></script>
+        <script src="/social/min/?g=app_js&v=1.0" type="text/javascript"></script>
+
+		<script type="text/javascript">
+        	var global = {
+        	    baseUrl: "http://www.iguuu.com"
+        	};
+        </script>
+                    </body>
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>www.iguuu.com - System Error</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
+	<style type="text/css">
+	<!--
+	body { background-color: white; color: black; font: 9pt/11pt verdana, arial, sans-serif;}
+	#container { width: 1024px; }
+	#message   { width: 1024px; color: black; }
+
+	.red  {color: red;}
+	a:link     { font: 9pt/11pt verdana, arial, sans-serif; color: red; }
+	a:visited  { font: 9pt/11pt verdana, arial, sans-serif; color: #4e4e4e; }
+	h1 { color: #FF0000; font: 18pt "Verdana"; margin-bottom: 0.5em;}
+	.bg1{ background-color: #FFFFCC;}
+	.bg2{ background-color: #EEEEEE;}
+	.table {background: #AAAAAA; font: 11pt Menlo,Consolas,"Lucida Console"}
+	.info {
+	    background: none repeat scroll 0 0 #F3F3F3;
+	    border: 0px solid #aaaaaa;
+	    border-radius: 10px 10px 10px 10px;
+	    color: #000000;
+	    font-size: 11pt;
+	    line-height: 160%;
+	    margin-bottom: 1em;
+	    padding: 1em;
+	}
+
+	.help {
+	    background: #F3F3F3;
+	    border-radius: 10px 10px 10px 10px;
+	    font: 12px verdana, arial, sans-serif;
+	    text-align: center;
+	    line-height: 160%;
+	    padding: 1em;
+	}
+
+	.sql {
+	    background: none repeat scroll 0 0 #FFFFCC;
+	    border: 1px solid #aaaaaa;
+	    color: #000000;
+	    font: arial, sans-serif;
+	    font-size: 9pt;
+	    line-height: 160%;
+	    margin-top: 1em;
+	    padding: 4px;
+	}
+	-->
+	</style>
+</head>
+<body>
+<div id="container">
+<h1>Discuz! System Error</h1>
+<div class='info'>Call to a member function terminate() on null</div>
+
+<div class="info"><p><strong>PHP Debug</strong></p><table cellpadding="5" cellspacing="1" width="100%" class="table"><tr class="bg2"><td>No.</td><td>File</td><td>Line</td><td>Code</td></tr><tr class="bg1"><td>1</td><td>/mnt/data/www/html/social/index.php</td><td>58</td><td>break()</td></tr></table></div><div class="help"><a href="http://www.iguuu.com">www.iguuu.com</a> 已经将此出错信息详细记录, 由此给您带来的访问不便我们深感歉意. </div>
+</div>
+</body>
+</html>
